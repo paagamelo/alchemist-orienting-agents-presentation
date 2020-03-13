@@ -48,116 +48,76 @@
 \definecolor{bostonuniversityred}{rgb}{0.8, 0.0, 0.0}
 
 \begin{frame}{Eventi rilevanti}
-\hfil\hfil\includegraphics[width=5cm]{figures/piazza-san-carlo.jpeg}
-\hfil\hfil\includegraphics[width=5cm]{figures/hajj.jpg}
+\hfil\hfil\includegraphics[width=5.5cm]{figures/piazza-san-carlo.jpeg}
+\hfil\hfil\includegraphics[width=5.5cm]{figures/hajj.jpg}
 \newline
 \null
-\hfil\hfil\makebox[5cm]{Piazza San Carlo, Torino}
-\hfil\hfil\makebox[5cm]{Ponte Jamarat, Mina}
-\begin{block}{Conseguenze}
-\begin{itemize}
-    \item In Piazza San Carlo a Torino la fuga incontrollata della folla a seguito dell'uso di spray urticante da parte di malviventi causò 1500 feriti e 3 morti (2017)
-    \item Sul Ponte Jamarat a Mina l'impatto tra due flussi di fedeli diretti verso la Mecca causò più di 2000 morti (2015)
-\end{itemize}
-\end{block}
+\hfil\hfil\makebox[5.5cm]{Piazza San Carlo, Torino}
+\hfil\hfil\makebox[5.5cm]{Ponte Jamarat, Mina}
+\newline
+\null
+\hfil\hfil\makebox[5.5cm]{1500 feriti, 3 morti (2017)}
+\hfil\hfil\makebox[5.5cm]{Più di 2000 morti (2015)}
 \end{frame}
 
 \begin{frame}{Simulazioni di evacuazione}
-%\begin{block}{Soluzione}
-%Per prevenire situazioni disastrose vengono solitamente effettuate delle simulazioni di evacuazione in vari scenari
-%\end{block}
+\hfil\hfil\includegraphics[width=5.5cm]{figures/real-simulation.jpg}
+\hfil\hfil\includegraphics[width=5.5cm]{figures/computerised-simulation.png}
+\newline
+\null
+\hfil\hfil\makebox[5.5cm]{Simulazione reale}
+\hfil\hfil\makebox[5.5cm]{Simulazione computerizzata}
+\end{frame}
+
+\begin{comment}
+\begin{frame}{Simulazioni di evacuazione}
 \begin{block}{Simulazioni reali}
 \begin{itemize}
-    \item Coinvolgono individui reali
-    \item I costi possono essere proibitivi
-    \item Le condizioni psicologiche dei partecipanti sono differenti rispetto a una situazione di vero o presunto pericolo
+    \item Costi potenzialmente proibitivi
+    \item Condizioni psicologiche dei partecipanti differenti rispetto a una situazione di vero pericolo
 \end{itemize}
 \end{block}
 \begin{block}{Simulazioni computerizzate}
 \begin{itemize}
-    \item Coinvolgono individui simulati
-    \item Sono in grado di valutare più scenari in minor tempo
-    \item I costi sono più contenuti rispetto a simulazioni reali
-    \item Sono inevitabilmente meno realistiche, ma possono essere utili per avere dei riscontri fin da subito
+    \item Costi più contenuti
+    %\item In grado di valutare più scenari in minor tempo
+    \item Inevitabilmente meno realistiche, ma utili per avere dei riscontri fin da subito
 \end{itemize}
 \end{block}
 \end{frame}
+\end{comment}
 
 \begin{frame}{Il simulatore Alchemist}
 \begin{block}{Alchemist è}
-\begin{itemize}
-    \item Un simulatore nato all'interno dell'Università di Bologna che consente la simulazione di vari scenari, tra cui l'\textcolor{bostonuniversityred}{evacuazione di folle}
-    \item Basato sul modello ad agenti: ciascun individuo è autonomo ed è rappresentato separatamente, dunque c'è eterogeneità
-\end{itemize}
-%\begin{itemize}
-%    \item Un simulatore nato all'interno dell'Università di Bologna che consente la simulazione di vari scenari
-%    \item Dotato delle astrazioni necessarie a simulare l'evacuazione di folle
-%\end{itemize}
+Un simulatore nato all'interno dell'Università di Bologna che consente la simulazione di vari scenari, tra cui l'evacuazione di folle
 \end{block}
 \begin{block}{In Alchemist sono modellati}
-%\begin{block}{I pedoni simulati in Alchemist sono dotati di}
-\begin{itemize}
-    \item Aspetti fisici, come sesso ed età
-    \item Aspetti psicologici, come paura e sensazione di pericolo
-    \item Aspetti sociali, come la tendenza a rimanere vicino al proprio gruppo
-    \item Interazioni psicologiche, come il contagio sociale
-\end{itemize}
+Diversi aspetti psicologici e sociali dei pedoni
 \end{block}
 \begin{alertblock}{Problema}
-I pedoni simulati in Alchemist sono sprovvisti della capacità di orientarsi
+I pedoni simulati in Alchemist sono sprovvisti della capacità di \textcolor{bostonuniversityred}{orientarsi}
 \end{alertblock}
 \end{frame}
 
 \begin{frame}[fragile]{Pathfinding}
-%\begin{block}{Definizione}
-%Il pathfinding consiste nell'individuazione del percorso più breve esistente tra due punti in un dato ambiente con ostacoli
-%\end{block}
-\hfil\hfil\includegraphics[width=6.9cm]{figures/pathfinding.png}
-\begin{block}{Il pathfinding è scomponibile in due sotto-problemi}
-\begin{enumerate}
-    \item Ricavare dall'ambiente un grafo i cui nodi sono \textcolor{bostonuniversityred}{poligoni convessi} che descrivono le aree attraversabili dai pedoni (\emph{walkable areas})
-    \item Trovare un cammino minimo tra due nodi di un grafo
-\end{enumerate}{}
-\end{block}{}
-
-
-\begin{comment}
-\begin{block}{Il pathfinding}
-\begin{itemize}
-    \item Consiste nell'individuazione del percorso più breve esistente tra due punti in un dato ambiente con ostacoli
-    \item E' usato in alcuni modelli per risolvere il problema dell'orientamento dei pedoni simulati
-    \item E' scomponibile in due sotto-problemi:
-    \begin{enumerate}
-        \item Ricavare dall'ambiente una struttura dati utile a trovare dei cammini minimi. Solitamente si usa un grafo i cui nodi sono \textcolor{bostonuniversityred}{poligoni convessi} che descrivono le aree dall'ambiente attraversabili dai pedoni (\emph{walkable areas}), mentre gli archi rappresentano le connessioni tra queste
-        \item Trovare un cammino minimo tra due nodi di un grafo
-    \end{enumerate}
-\end{itemize}
-\end{block}
-\end{comment}
-
+\hfil\hfil\includegraphics[width=9cm]{figures/pathfinding.png}
 \end{frame}
 
 \begin{frame}{Human wayfinding}
 \begin{alertblock}{Problema}
-Il pathfinding assume che i pedoni conoscano perfettamente l'ambiente, ma questa ipotesi raramente è verificata: individui diversi hanno una \textcolor{bostonuniversityred}{conoscenza diversa} dello spazio circostante, spesso \textcolor{bostonuniversityred}{parziale} e \textcolor{bostonuniversityred}{inaccurata}
+Il pathfinding assume che i pedoni conoscano perfettamente l'ambiente, ma individui diversi hanno una \textcolor{bostonuniversityred}{conoscenza diversa} dello spazio circostante, spesso \textcolor{bostonuniversityred}{parziale} e \textcolor{bostonuniversityred}{inaccurata}
 \end{alertblock}
 \begin{block}{Obbiettivo}
-\begin{itemize}
-    \item Modellare l'inaccurata rappresentazione mentale che ciascun pedone ha dell’ambiente circostante, nota come \textcolor{bostonuniversityred}{mappa cognitiva}
-    \item Modellare il processo mentale che usa tali informazioni per orientarsi
-\end{itemize}
-\end{block}
-\begin{block}{Più in generale}
-Si vuole simulare la capacità umana di navigare l'ambiente, questo problema è noto come human wayfinding
+Fornire i pedoni simulati di una tale eterogeneità
 \end{block}
 \end{frame}
 
 \begin{frame}{Conoscenza spaziale}
-\begin{block}{La mappa cognitiva}
+\begin{block}{La mappa cognitiva è}
 \begin{itemize}
-    %\item La rappresentazione mentale di un individuo dell’ambiente
-    \item E' composta da \textcolor{bostonuniversityred}{landmark} (elementi dell'ambiente memorizzati per la loro unicità, ad esempio una torre) e relazioni spaziali tra questi
-    \item E' modellata con un grafo i cui nodi sono \textcolor{bostonuniversityred}{ellissi} e gli archi memorizzano un'informazione booleana per ogni connessione (non viene memorizzato il percorso)
+    \item L'inaccurata rappresentazione mentale di un individuo dell’ambiente
+    \item Composta da \textcolor{bostonuniversityred}{landmark} e relazioni spaziali tra questi
+    \item Modellata con un grafo i cui nodi sono \textcolor{bostonuniversityred}{ellissi}
 \end{itemize}
 \end{block}
 \begin{alertblock}{Problema}
@@ -165,14 +125,10 @@ Che fare delle informazioni apprese dai pedoni durante la simulazione?
 \end{alertblock}
 \begin{block}{Soluzione: la memoria volatile}
 \begin{itemize}
-    %\item Consta delle informazioni spaziali apprese durante l’evacuazione
-    \item Fornisce ai pedoni la capacità di ricordare e riconoscere aree dell'ambiente già visitate durante l'evacuazione
-    \item E' modellata con una mappa che ad ogni walkable area associa il numero di visite
+    \item Permette di riconoscere aree dell'ambiente già visitate durante l'evacuazione
+    \item E' una mappa che ad ogni area associa il numero di visite
 \end{itemize}{}
 \end{block}{}
-
-%\hfil\hfil\includegraphics[width=8.5cm]{figures/cognitive-map-drawing.png}
-%\cite{Golledge1999}
 \end{frame}{}
 
 
@@ -221,47 +177,35 @@ Che fare delle informazioni apprese dai pedoni durante la simulazione?
 
 \begin{frame}{Elaborazione di informazioni spaziali 1/2}
 \begin{alertblock}{Problema}
-Dalla mappa cognitiva si può ricavare un percorso verso una destinazione marcata con un landmark speciale. Come si può seguire tale percorso?
+Come utilizzare la mappa cognitiva?
 \end{alertblock}{}
-\hfil\hfil\includegraphics[width=9cm]{figures/polygonal-chains-to-subdestination.png}
-\end{frame}{}
+\hfil\hfil\includegraphics[width=9.5cm]{figures/polygonal-chains-to-subdestination.png}
+\end{frame}
 
 \begin{frame}{Elaborazione di informazioni spaziali 2/2}
 \begin{block}{Il sistema di pesi}
-%Assegna un peso ad ogni arco incidente sulla walkable area in cui il pedone si trova, l'arco di peso minimo viene poi attraversato
-E' usato ogni volta che un pedone entra in una nuova walkable area, assegna un peso \(w\) ad ogni arco \(e\) visibile (l'ambiente è un grafo i cui nodi sono walkable areas), l'arco di peso minimo viene poi attraversato:
+Assegna un peso \(w\) ad ogni arco \(e\) visibile, l'arco di peso minimo viene poi attraversato:
 \begin{equation}
-    w(e) = f_{volatile\ memory}\cdot f_{cognitive\ map}\cdot f_{final}\cdot f_{impasse}\cdot f_{congestion}
+    w(e) = f_{volatile\ memory}\cdot f_{cognitive\ map}\cdot f_{final}\cdot \textcolor{bostonuniversityred}{f_{impasse}}\cdot \textcolor{bostonuniversityred}{f_{congestion}}
 \end{equation}{}
-\begin{itemize}
-    \item \(f_{volatile\ memory}\) aumenta il peso di archi conducenti a zone già visitate
-    \item \(f_{cognitive\ map}\) riduce il peso di un arco in base a quanto questo permette di avvicinarsi al prossimo landmark
-    \item \(f_{final}\) tiene conto di eventuali destinazioni trovate strada facendo
-    \item \textcolor{bostonuniversityred}{\(f_{impasse}\)} aumenta il peso di archi conducenti a vicoli ciechi se presenti nella memoria volatile
-    \item \textcolor{bostonuniversityred}{\(f_{congestion}\)} aumenta il peso di archi conducenti a zone affollate
-\end{itemize}
 \end{block}
 \end{frame}
 
 \begin{frame}{Esempi di simulazione}
-\begin{block}{Conoscenza completa}
-Un pedone con conoscenza completa dell'ambiente deve raggiungere una destinazione marcata di verde
+\begin{block}{4 simulazioni}
+\begin{itemize}
+    \item Conoscenza completa
+    \item Conoscenza parziale (30\%)
+    \item Nessuna conoscenza
+    \item Aggiramento delle congestioni
+\end{itemize}
 \end{block}
-\begin{block}{Conoscenza parziale (30\%)}
-Un pedone con conoscenza parziale dell'ambiente (30\%) deve raggiungere una destinazione marcata di verde
-\end{block}
-\begin{block}{Nessuna conoscenza}
-Un pedone senza conoscenza dell'ambiente deve raggiungere una destinazione marcata di verde
-\end{block}
-\begin{block}{Aggiramento delle congestioni}
-130 pedoni devono raggiungere una destinazione marcata di verde, ma i due percorsi più brevi sono affollati da persone senza capacità locomotorie
-\end{block}
-\end{frame}{}
+\end{frame}
 
 \begin{frame}{Conclusioni e sviluppi futuri}
 \begin{block}{In conclusione}
 \begin{itemize}
-    \item I pedoni realizzati presentano il comportamento desiderato e sono sufficientemente semplici (in termini di complessità computazionale) da essere utilizzati in simulazioni ad alto numero di agenti
+    \item I pedoni realizzati presentano il comportamento desiderato
     \item I contributi fatti permettono di ottenere pattern di navigazione dell'ambiente più realistici
 \end{itemize}{}
 \end{block}
@@ -272,8 +216,7 @@ Un pedone senza conoscenza dell'ambiente deve raggiungere una destinazione marca
         \item Abilità percettive più realistiche
         \item Importazione dei landmark tramite immagine
     \end{itemize}{}
-    \item Modellare caratteristiche fisiche come resistenza e forma dei pedoni
-    \item Modellare interazioni fisiche come spinte, urti e pressioni, e le relative conseguenze, come ferite e cadute
+    \item Modellare caratteristiche e interazioni fisiche
 \end{itemize}{}
 \end{block}{}
 \end{frame}{}
