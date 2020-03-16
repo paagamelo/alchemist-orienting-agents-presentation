@@ -44,7 +44,6 @@
 %  \tableofcontents
 %\end{frame}
 
-%\section{Disastri}
 \definecolor{bostonuniversityred}{rgb}{0.8, 0.0, 0.0}
 
 \begin{frame}{Eventi rilevanti}
@@ -68,24 +67,6 @@
 \hfil\hfil\makebox[5.5cm]{Simulazione reale}
 \hfil\hfil\makebox[5.5cm]{Simulazione computerizzata}
 \end{frame}
-
-\begin{comment}
-\begin{frame}{Simulazioni di evacuazione}
-\begin{block}{Simulazioni reali}
-\begin{itemize}
-    \item Costi potenzialmente proibitivi
-    \item Condizioni psicologiche dei partecipanti differenti rispetto a una situazione di vero pericolo
-\end{itemize}
-\end{block}
-\begin{block}{Simulazioni computerizzate}
-\begin{itemize}
-    \item Costi più contenuti
-    %\item In grado di valutare più scenari in minor tempo
-    \item Inevitabilmente meno realistiche, ma utili per avere dei riscontri fin da subito
-\end{itemize}
-\end{block}
-\end{frame}
-\end{comment}
 
 \begin{frame}{Il simulatore Alchemist}
 \begin{block}{Alchemist è}
@@ -115,9 +96,8 @@ Fornire i pedoni simulati di una tale eterogeneità
 \begin{frame}{Conoscenza spaziale}
 \begin{block}{La mappa cognitiva è}
 \begin{itemize}
-    \item L'inaccurata rappresentazione mentale di un individuo dell’ambiente
-    \item Composta da \textcolor{bostonuniversityred}{landmark} e relazioni spaziali tra questi
-    \item Modellata con un grafo i cui nodi sono \textcolor{bostonuniversityred}{ellissi}
+    \item La rappresentazione mentale di un individuo dell’ambiente circostante
+    \item Incompleta e inaccurata
 \end{itemize}
 \end{block}
 \begin{alertblock}{Problema}
@@ -131,58 +111,7 @@ Che fare delle informazioni apprese dai pedoni durante la simulazione?
 \end{block}{}
 \end{frame}{}
 
-
-\begin{comment}
-
-\begin{frame}{Conoscenza spaziale 1/2}
-\begin{block}{La mappa cognitiva è}
-\begin{itemize}
-    \item La rappresentazione mentale di un individuo dell’ambiente circostante
-    \item Composta da \textcolor{bostonuniversityred}{landmark} (elementi dell'ambiente memorizzati per la loro unicità, ad esempio una torre) e relazioni spaziali tra questi %\cite{Andresen2018}
-    \item Incompleta e inaccurata
-    %\item La principale fonte di informazioni spaziali
-\end{itemize}{}
-\end{block}{}
-\begin{block}{La si può modellare}
-\begin{itemize}
-    %\item Mediante un grafo i cui nodi sono landmark
-    \item Rappresentando i landmark con delle \textcolor{bostonuniversityred}{ellissi}, in grado di descrivere l'imprecisione riguardo l'esatta posizione del landmark
-    \item Memorizzando un'informazione booleana per ogni connessione tra landmark (non viene memorizzato il percorso)
-\end{itemize}
-\end{block}
-\begin{block}{In generale}
-Il grado di familiarità di un individuo con l'ambiente dipende dal numero di landmark e di connessioni nella sua mappa cognitiva
-\end{block}{}
-\end{frame}{}
-
-\begin{frame}{Conoscenza spaziale 2/2}
-\begin{alertblock}{Problema}
-Che fare delle informazioni apprese dai pedoni durante la simulazione?
-\end{alertblock}
-\begin{block}{Soluzione}
-\begin{itemize}
-    \item Idealmente, si vorrebbe che tali informazioni si aggiungessero alla mappa cognitiva
-    \item Per semplicità, si modella solo la capacità di ricordare e riconoscere aree dell'ambiente già visitate durante l'evacuazione
-\end{itemize}
-\end{block}
-\begin{block}{La memoria volatile}
-\begin{itemize}
-    \item Consta delle informazioni spaziali che il pedone apprende durante l’evacuazione
-    \item E' modellata con una mappa che ad ogni walkable area associa il numero di visite
-\end{itemize}{}
-\end{block}{}
-\end{frame}
-
-\end{comment}{}
-
-\begin{frame}{Elaborazione di informazioni spaziali 1/2}
-\begin{alertblock}{Problema}
-Come utilizzare la mappa cognitiva?
-\end{alertblock}{}
-\hfil\hfil\includegraphics[width=9.5cm]{figures/polygonal-chains-to-subdestination.png}
-\end{frame}
-
-\begin{frame}{Elaborazione di informazioni spaziali 2/2}
+\begin{frame}{Elaborazione di informazioni spaziali}
 \begin{block}{Il sistema di pesi}
 Assegna un peso \(w\) ad ogni arco \(e\) visibile, l'arco di peso minimo viene poi attraversato:
 \begin{equation}
@@ -211,11 +140,7 @@ Assegna un peso \(w\) ad ogni arco \(e\) visibile, l'arco di peso minimo viene p
 \end{block}
 \begin{block}{Sviluppi futuri}
 \begin{itemize}
-    \item Raffinare quanto già presente:
-    \begin{itemize}
-        \item Abilità percettive più realistiche
-        \item Importazione dei landmark tramite immagine
-    \end{itemize}{}
+    \item Raffinare quanto già presente
     \item Modellare caratteristiche e interazioni fisiche
 \end{itemize}{}
 \end{block}{}
